@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Header from './Header/Header';
-import LogViewer from './LogViewer/LogViewer';
+import UserViewer from './UserViewer/UserViewer';
 import { Container } from 'semantic-ui-react'
 
 class App extends Component {
@@ -9,7 +9,7 @@ class App extends Component {
     return (
       <Container className="App">
         <Header />
-        <LogViewer />
+        <UserViewer />
       </Container>
     );
   }
