@@ -12,6 +12,7 @@ var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 
+
 // /*
 // This module provides helper methods to allow the application to interact with a MongoDB database.
 // */
