@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var DB = require('../db');
+var DB = require('../database/db');
 
 /**
  * GET users listing
@@ -55,35 +55,5 @@ router.post('/', function(req, res, next) {
     }
   );
 });
-
-router.get('/countUsers', (req, res) => {
-  var db = new DB;
-  
-  db.connect()
-    .then(
-      function() {
-        // Successfully connected to the database
-        // Make the database call and pass the returned promise to the next stage
-        return db.countDocuments('users');
-      },
-      function(err) {
-        // DB connection failed, add context to the error and throw it (it will be
-        // converted to a rejected promise
-        throw("Failed to connect to the db: " + err);
-      })
-    // The following `.then` clause uses the promise returned by the previous one.
-    .then(
-      function(count) {
-        // Successfully counted the documents
-        console.log(count + " users");
-        db.close();
-      },
-      function(err) {
-        // Could have got here by either `db.connect` or `db.countDocuments`
-        // failing
-        console.log("Failed to count the users: " + err);
-        db.close();
-      })
-})
 
 module.exports = router;
