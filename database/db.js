@@ -1,16 +1,14 @@
 var mongoose = require('mongoose');
 var config = require('../config');
 
-var mongoDB = config.database.defaultUri;
-mongoose.connect(mongoDB);
+mongoose.connect(config.database.defaultUri);
 // Get Mongoose to use the global promise library
 mongoose.Promise = global.Promise;
 
 var db = mongoose.connection;
-
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
-
+module.exports = db;
 
 // /*
 // This module provides helper methods to allow the application to interact with a MongoDB database.
