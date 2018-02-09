@@ -6,7 +6,8 @@ var UserProfileSchema = new Schema({
   city: String,
   country: String,
   linkedin_url: String,
-  skills: [{ type: Schema.ObjectId, ref: 'Skill' }]
+  skills: [{ type: Schema.ObjectId, ref: 'Skill' }],
+  dob: { type: Date }
 });
 
 module.exports = mongoose.model('UserProfile', UserProfileSchema);

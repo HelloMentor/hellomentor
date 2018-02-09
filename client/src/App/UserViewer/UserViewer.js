@@ -4,10 +4,10 @@ import './UserViewer.css';
 
 class UserViewer extends Component {
   state = { users: '' }
-  
+
   constructor(props) {
     super(props);
-    
+
     // This binding is necessary to make `this` work in the callback
     this.addFakeUser = this.addFakeUser.bind(this);
   }
@@ -19,7 +19,7 @@ class UserViewer extends Component {
         this.setState({ users: JSON.stringify(users) });
       });
   }
-  
+
   addFakeUser() {
     fetch('/users', {
       method: 'POST',
@@ -27,6 +27,7 @@ class UserViewer extends Component {
       body: JSON.stringify({
         user: {
           u_name: 'lolcat' + Math.floor(Math.random() * 100000),
+          password: 'abc123',
           role: 'Mentee',
           f_name: 'Ben',
           l_name: 'Inada',
@@ -39,7 +40,7 @@ class UserViewer extends Component {
     .then(user => {
       var updatedUsers = JSON.parse(this.state.users);
       updatedUsers.push(user);
-      
+
       this.setState({ users: JSON.stringify(updatedUsers) })
     });
   }
