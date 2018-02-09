@@ -18,45 +18,19 @@ router.get('/', function(req, res, next) {
  * POST a user
  */
 router.post('/', function(req, res, next) {
-	// User.create({
-	// 	u_name: 'lolcat',
-	// 	role: ,
-	// 	f_name: 'Ben',
-	// 	l_name: 'Inada',
-	// 	email: 'me@beninada.com',
-	// 	dob: 
-	// }, function(err, user) {
-	//   if (err) return console.error(err);
-  // 
-	// 	console.log(user);
-	// });
-	
-  // var db = new DB;
-  // 
-	// db.connect().then(
-  //   function() {
-  //     db.addDocument('users', req.body.user)
-  //       .then(
-  //         function() {
-  //           db.close();
-  //           res.json({
-  //             success: true,
-  //             data: {
-  //               user: req.body.user
-  //             }
-  //           });
-  //         },
-  //         function(error) {
-  //           db.close();
-  //           res.json({
-  //             success: false,
-  //             error: error
-  //           });
-  //           throw error;
-  //         }
-  //       );
-  //   }
-  // );
+  var requestUser = req.body.user;
+
+	User.create({
+		u_name: requestUser.u_name,
+		role: requestUser.role,
+		f_name: requestUser.f_name,
+		l_name: requestUser.l_name,
+		email: requestUser.email,
+		dob: requestUser.dob
+	}, function(err, user) {
+	  if (err) return console.error(err);
+    res.json(user)
+	});
 });
 
 module.exports = router;

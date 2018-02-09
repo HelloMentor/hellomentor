@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 var UserSchema = new Schema({
   u_name: { type: String, required: true, max: 15 },
-  role: { type: Schema.ObjectId, required: true, ref: 'Role' },
+  role: { type: String, required: true, enum: ['Mentor', 'Mentee'] },
   f_name: { type: String, required: true },
   l_name: { type: String, required: true },
   email: { type: String, required: true },

@@ -26,14 +26,19 @@ class UserViewer extends Component {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         user: {
-          u_name: 'lolcat' + Math.floor(Math.random() * 100000)
+          u_name: 'lolcat' + Math.floor(Math.random() * 100000),
+          role: 'Mentee',
+          f_name: 'Ben',
+          l_name: 'Inada',
+          email: 'me@beninada.com',
+          dob: new Date()
         }
       })
     })
     .then(res => res.json())
-    .then(json => {
+    .then(user => {
       var updatedUsers = JSON.parse(this.state.users);
-      updatedUsers.push(json.data.user);
+      updatedUsers.push(user);
       
       this.setState({ users: JSON.stringify(updatedUsers) })
     });
