@@ -24,7 +24,6 @@ router.post('/', function(req, res, next) {
   var requestUser = req.body.user;
 	var user = new User();
 
-	user.u_name = requestUser.u_name;
 	user.role = requestUser.role;
 	user.f_name = requestUser.f_name;
 	user.l_name = requestUser.l_name;
@@ -44,9 +43,6 @@ router.put('/', auth.required, function(req, res, next){
     if (!user) { return res.sendStatus(401); }
 
     // only update fields that were actually passed...
-    if (typeof req.body.user.u_name !== 'undefined') {
-      user.u_name = req.body.user.u_name;
-    }
     if (typeof req.body.user.email !== 'undefined') {
       user.email = req.body.user.email;
     }

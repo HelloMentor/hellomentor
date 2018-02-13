@@ -6,7 +6,6 @@ var secret = require('../../config').secret;
 var Schema = mongoose.Schema;
 
 var UserSchema = new Schema({
-  u_name: { type: String, required: true, max: 15, required: [true, 'cannot be blank'], match: [/^[a-zA-Z0-9]+$/, 'is invalid'], index: true },
   role: { type: String, required: true, enum: ['Mentor', 'Mentee', 'Admin'] },
   f_name: { type: String, required: true },
   l_name: { type: String, required: true },
@@ -34,14 +33,13 @@ UserSchema.methods.generateJWT = function() {
 
   return jwt.sign({
     id: this._id,
-    username: this.u_name,
+    email: this.email,
     exp: parseInt(exp.getTime() / 1000),
   }, secret);
 };
 
 UserSchema.methods.toAuthJSON = function(){
   return {
-    u_name: this.u_name,
     email: this.email,
     token: this.generateJWT()
   };
