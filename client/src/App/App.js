@@ -1,16 +1,27 @@
 import React, { Component } from 'react';
+import { Route, Switch } from 'react-router';
+import { BrowserRouter } from 'react-router-dom';
 import './App.css';
 import Header from './Header/Header';
-import UserViewer from './UserViewer/UserViewer';
+import Landing from './Landing/Landing';
+import Signup from './Signup/Signup';
 import { Container } from 'semantic-ui-react'
 
 class App extends Component {
   render() {
     return (
-      <Container className="App">
-        <Header />
-        <UserViewer />
-      </Container>
+
+      <BrowserRouter>
+        <Container className="App">
+          <Header />
+          <Switch>
+            <Route exact path='/' component={Landing} />
+            <Route exact path='/signup' component={Signup} />
+              return <p>Not Found</p>
+            }} />
+          </Switch>
+        </Container>
+      </BrowserRouter>
     );
   }
 }

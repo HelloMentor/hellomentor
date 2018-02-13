@@ -1,32 +1,31 @@
 import React, { Component } from 'react';
 import { Container, Button } from 'semantic-ui-react'
-import './UserViewer.css';
+import './Signup.css';
 
-class UserViewer extends Component {
-  state = { users: '' }
+class Signup extends Component {
+  state = { }
 
   constructor(props) {
     super(props);
 
     // This binding is necessary to make `this` work in the callback
-    this.addFakeUser = this.addFakeUser.bind(this);
+    this.signup = this.signup.bind(this);
   }
 
   componentDidMount() {
-    fetch('/users')
-      .then(res => res.json())
-      .then(users => {
-        this.setState({ users: JSON.stringify(users) });
-      });
+    // fetch('/users')
+    //   .then(res => res.json())
+    //   .then(users => {
+    //     this.setState({ users: JSON.stringify(users) });
+    //   });
   }
 
-  addFakeUser() {
+  signup() {
     fetch('/users', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         user: {
-          u_name: 'lolcat' + Math.floor(Math.random() * 100000),
           password: 'abc123',
           role: 'Mentee',
           f_name: 'Ben',
@@ -38,23 +37,20 @@ class UserViewer extends Component {
     })
     .then(res => res.json())
     .then(user => {
-      var updatedUsers = JSON.parse(this.state.users);
-      updatedUsers.push(user);
-
-      this.setState({ users: JSON.stringify(updatedUsers) })
+      // var updatedUsers = JSON.parse(this.state.users);
+      // updatedUsers.push(user);
+      //
+      // this.setState({ users: JSON.stringify(updatedUsers) })
     });
   }
 
   render() {
     return (
       <Container textAlign='left' style={{ marginTop: '7em' }}>
-        <Container style={{ marginBottom: '1em' }}>
-          {this.state.users}
-        </Container>
-        <Button onClick={this.addFakeUser}>Add Fake User</Button>
+        <Button onClick={this.signup}>SUBMIT</Button>
       </Container>
     );
   }
 }
 
-export default UserViewer;
+export default Signup;
