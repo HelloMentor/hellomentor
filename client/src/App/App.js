@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
 import './App.css';
 import Header from './Header/Header';
+import Footer from './Footer/Footer';
 import Landing from './Landing/Landing';
 import Signup from './Signup/Signup';
 import { Container } from 'semantic-ui-react'
@@ -12,7 +13,7 @@ class App extends Component {
     return (
 
       <BrowserRouter>
-        <Container className="App">
+        <Container className='App'>
           <Header />
           <Switch>
             <Route exact path='/' component={Landing} />
@@ -20,6 +21,7 @@ class App extends Component {
               return <p>Not Found</p>
             }} />
           </Switch>
+          <Footer />
         </Container>
       </BrowserRouter>
     );

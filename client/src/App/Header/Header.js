@@ -15,7 +15,6 @@ class Header extends Component {
             />
             HelloMentor
           </Menu.Item>
-          {/*<Menu.Item as='a'>Home</Menu.Item>*/}
         </Container>
       </Menu>
     );
