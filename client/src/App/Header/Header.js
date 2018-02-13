@@ -5,17 +5,16 @@ import './Header.css';
 class Header extends Component {
   render() {
     return (
-      <Menu fixed='top'>
-        <Container>
-          <Menu.Item as='a' header>
-            <Image
-              size='mini'
-              src='images/logos/mountains.png'
-              style={{ marginRight: '1.5em' }}
-            />
-            HelloMentor
-          </Menu.Item>
-        </Container>
+      <Menu size='small'>
+        <Menu.Item>
+          <Image
+            size='mini'
+            src='images/logos/mountains.png'
+          />
+        </Menu.Item>
+        <Menu.Item header>
+          HelloMentor
+        </Menu.Item>
       </Menu>
     );
   }

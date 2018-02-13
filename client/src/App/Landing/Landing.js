@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Container, Card, Grid, Header, List } from 'semantic-ui-react'
+import './Landing.css';
 
 class Landing extends Component {
   state = { }
@@ -14,7 +15,7 @@ class Landing extends Component {
 
   render() {
     return (
-      <Container style={{ marginTop: '7em' }}>
+      <Container className='container-landing'>
         <Container>
           <Header as='h1' textAlign='left'>Build The Future, Together</Header>
           <div style={{textAlign: 'left'}}>We&#39;ll introduce you to a lifelong friend who will help you achieve your craziest dreams.</div>
@@ -24,7 +25,7 @@ class Landing extends Component {
             <Grid container>
               <Grid.Column mobile={16} tablet={8} computer={8}>
                 <Card fluid>
-                  <Card.Content>
+                  <Card.Content style={{ padding: '3em' }}>
                     <Card.Header textAlign='left'>
                       Find a Mentee
                     </Card.Header>
@@ -44,7 +45,7 @@ class Landing extends Component {
               </Grid.Column>
               <Grid.Column mobile={16} tablet={8} computer={8}>
                 <Card fluid>
-                  <Card.Content>
+                  <Card.Content style={{ padding: '3em' }}>
                     <Card.Header textAlign='left'>
                       Become a Mentor
                     </Card.Header>
