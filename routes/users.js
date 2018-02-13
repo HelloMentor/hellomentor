@@ -24,11 +24,19 @@ router.post('/', function(req, res, next) {
   var requestUser = req.body.user;
 	var user = new User();
 
+	user.email = requestUser.email;
+	user.setPassword(requestUser.password);
 	user.role = requestUser.role;
 	user.f_name = requestUser.f_name;
 	user.l_name = requestUser.l_name;
-	user.email = requestUser.email;
-	user.setPassword(requestUser.password);
+  user.gender = requestUser.gender;
+  user.city = requestUser.city;
+  user.country = requestUser.country;
+  user.summary = requestUser.summary;
+  user.linkedin_url = requestUser.linkedin_url;
+  user.skills = requestUser.skills;
+  user.gender = requestUser.gender;
+  user.dob = requestUser.dob;
 
 	user.save().then(function() {
     return res.json({ user: user.toAuthJSON() });
@@ -46,17 +54,41 @@ router.put('/', auth.required, function(req, res, next){
     if (typeof req.body.user.email !== 'undefined') {
       user.email = req.body.user.email;
     }
+    if (typeof req.body.user.password !== 'undefined') {
+      user.setPassword(req.body.user.password);
+    }
+    if (typeof req.body.user.role !== 'undefined') {
+      user.role = req.body.user.role;
+    }
     if (typeof req.body.user.f_name !== 'undefined') {
       user.f_name = req.body.user.f_name;
     }
     if (typeof req.body.user.l_name !== 'undefined') {
       user.l_name = req.body.user.l_name;
     }
-    if (typeof req.body.user.role !== 'undefined') {
-      user.role = req.body.user.role;
+    if (typeof req.body.user.gender !== 'undefined') {
+      user.gender = req.body.user.gender;
     }
-    if (typeof req.body.user.password !== 'undefined') {
-      user.setPassword(req.body.user.password);
+    if (typeof req.body.user.city !== 'undefined') {
+      user.city = req.body.user.city;
+    }
+    if (typeof req.body.user.country !== 'undefined') {
+      user.country = req.body.user.country;
+    }
+    if (typeof req.body.user.summary !== 'undefined') {
+      user.summary = req.body.user.summary;
+    }
+    if (typeof req.body.user.linkedin_url!== 'undefined') {
+      user.linkedin_url= req.body.user.linkedin_url;
+    }
+    if (typeof req.body.user.skills !== 'undefined') {
+      user.skills = req.body.user.skills;
+    }
+    if (typeof req.body.user.gender !== 'undefined') {
+      user.gender = req.body.user.gender;
+    }
+    if (typeof req.body.user.dob !== 'undefined') {
+      user.dob = req.body.user.dob;
     }
 
     return user.save().then(function(){

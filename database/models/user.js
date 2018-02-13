@@ -11,7 +11,14 @@ var UserSchema = new Schema({
   l_name: { type: String, required: true },
   email: { type: String, lowercase: true, required: [true, 'cannot be blank'], match: [/\S+@\S+\.\S+/, 'is invalid'], unique: true, index: true },
   hash: String,
-  salt: String
+  salt: String,
+  summary: String,
+  city: String,
+  country: String,
+  linkedin_url: String,
+  skills: [String],
+  gender: { type: String },
+  dob: { type: Date }
 }, { timestamps: true });
 
 UserSchema.plugin(uniqueValidator, { message: 'is already taken' });
