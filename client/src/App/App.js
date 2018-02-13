@@ -17,7 +17,8 @@ class App extends Component {
           <Header />
           <Switch>
             <Route exact path='/' component={Landing} />
-            <Route exact path='/signup' component={Signup} />
+            <Route path='/signup' component={Signup} />
+            <Route render={function () {
               return <p>Not Found</p>
             }} />
           </Switch>

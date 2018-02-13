@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Image, Menu } from 'semantic-ui-react'
+import { Image, Menu } from 'semantic-ui-react'
 import './Header.css';
 
 class Header extends Component {

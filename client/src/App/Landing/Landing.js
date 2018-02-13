@@ -27,7 +27,7 @@ class Landing extends Component {
                 <Card fluid>
                   <Card.Content style={{ padding: '3em' }}>
                     <Card.Header textAlign='left'>
-                      Find a Mentee
+                      Find a Mentor
                     </Card.Header>
                     <Card.Description>
                       <List bulleted style={{textAlign: 'left'}}>
@@ -39,7 +39,7 @@ class Landing extends Component {
                     </Card.Description>
                   </Card.Content>
                   <Card.Content extra>
-                    <Link to='/signup'><Button primary>Sign Up</Button></Link>
+                    <Link to='/signup/?role=mentee'><Button primary>Sign Up</Button></Link>
                   </Card.Content>
                 </Card>
               </Grid.Column>
@@ -59,7 +59,7 @@ class Landing extends Component {
                     </Card.Description>
                   </Card.Content>
                   <Card.Content extra>
-                    <Link to='/signup'><Button primary>Apply</Button></Link>
+                    <Link to='/signup/?role=mentor'><Button primary>Apply</Button></Link>
                   </Card.Content>
                 </Card>
               </Grid.Column>

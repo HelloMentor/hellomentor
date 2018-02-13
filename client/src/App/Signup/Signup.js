@@ -18,6 +18,7 @@ class Signup extends Component {
     //   .then(users => {
     //     this.setState({ users: JSON.stringify(users) });
     //   });
+    console.log(this.props.location.search);
   }
 
   signup() {
