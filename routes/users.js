@@ -35,6 +35,8 @@ router.post('/', function(req, res, next) {
   user.summary = requestUser.summary;
   user.linkedin_url = requestUser.linkedin_url;
   user.skills = requestUser.skills;
+  user.wanted_skills = requestUser.wanted_skills;
+  user.misc_desires = requestUser.misc_desires;
   user.gender = requestUser.gender;
   user.dob = requestUser.dob;
 
@@ -83,6 +85,12 @@ router.put('/', auth.required, function(req, res, next){
     }
     if (typeof req.body.user.skills !== 'undefined') {
       user.skills = req.body.user.skills;
+    }
+    if (typeof req.body.user.wanted_skills !== 'undefined') {
+      user.wanted_skills = req.body.user.wanted_skills;
+    }
+    if (typeof req.body.user.misc_desires !== 'undefined') {
+      user.misc_desires = req.body.user.misc_desires;
     }
     if (typeof req.body.user.gender !== 'undefined') {
       user.gender = req.body.user.gender;

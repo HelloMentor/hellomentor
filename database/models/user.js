@@ -18,7 +18,9 @@ var UserSchema = new Schema({
   linkedin_url: String,
   skills: [String],
   gender: { type: String },
-  dob: { type: Date }
+  dob: { type: Date },
+  wanted_skills: [String],
+  misc_desires: String
 }, { timestamps: true });
 
 UserSchema.plugin(uniqueValidator, { message: 'is already taken' });

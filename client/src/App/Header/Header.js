@@ -9,7 +9,7 @@ class Header extends Component {
         <Menu.Item>
           <Image
             size='mini'
-            src='images/logos/mountains.png'
+            src='/images/logos/mountains.png'
           />
         </Menu.Item>
         <Menu.Item header>
