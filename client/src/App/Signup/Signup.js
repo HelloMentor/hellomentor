@@ -163,18 +163,34 @@ class Signup extends Component {
             <label>Your skills (tab-separated)</label>
             <TagsInput value={this.state.user.skills} onChange={this.handleSkillChange} />
           </Form.Field>
-          <Form.Field width={10}>
-            <label>Things you would like mentorship in (tab-separated)</label>
-            <TagsInput value={this.state.user.wanted_skills} onChange={this.handleWantedSkillChange} />
-          </Form.Field>
+          {
+            (this.state.user.role === 'Mentee') ?
+              <Form.Field width={10}>
+                <label>Things you would like mentorship in (tab-separated)</label>
+                <TagsInput value={this.state.user.wanted_skills} onChange={this.handleWantedSkillChange} />
+              </Form.Field>
+            :
+              <Form.Field width={10}>
+                <label>Things you would like to provide mentorship for (tab-separated)</label>
+                <TagsInput value={this.state.user.wanted_skills} onChange={this.handleWantedSkillChange} />
+              </Form.Field>
+          }
           <Form.Field width={6}>
             <label>A summary about yourself</label>
             <TextArea name='summary' placeholder='A few sentences increases your chances of a great match' onChange={this.handleChange} />
           </Form.Field>
-          <Form.Field width={6}>
-            <label>Anything else you would like to mention to help us find you a mentor</label>
-            <TextArea name='misc_desires' placeholder='Anything else you would like to mention to help us find you a mentor' onChange={this.handleChange} />
-          </Form.Field>
+          {
+            (this.state.user.role === 'Mentee') ?
+              <Form.Field width={6}>
+                <label>Anything else you would like to mention to help us find you a mentor</label>
+                <TextArea name='misc_desires' placeholder='Anything else you would like to mention to help us find you a mentor' onChange={this.handleChange} />
+              </Form.Field>
+            :
+              <Form.Field width={6}>
+                <label>Anything else you would like to mention to help us find you a mentee</label>
+                <TextArea name='misc_desires' placeholder='Anything else you would like to mention to help us find you a mentee' onChange={this.handleChange} />
+              </Form.Field>
+          }
           <Button primary onClick={this.signup}>SUBMIT</Button>
         </Form>
       </Container>
