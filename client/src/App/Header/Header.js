@@ -6,13 +6,13 @@ class Header extends Component {
   render() {
     return (
       <Menu size='small'>
-        <Menu.Item>
+        <Menu.Item href='/'>
           <Image
             size='mini'
             src='/images/logos/mountains.png'
           />
         </Menu.Item>
-        <Menu.Item header>
+        <Menu.Item header href='/'>
           HelloMentor
         </Menu.Item>
       </Menu>
