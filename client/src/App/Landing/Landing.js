@@ -18,7 +18,7 @@ class Landing extends Component {
       <Container className='container-landing'>
         <Container>
           <Header as='h1' textAlign='left'>Build The Future, Together</Header>
-          <div style={{textAlign: 'left'}}>We&#39;ll introduce you to a lifelong friend who will help you achieve your craziest dreams.</div>
+          <div style={{textAlign: 'left'}}>We&#39;ll introduce you to a lifelong friend who will help you build your business and achieve your craziest dreams.</div>
         </Container>
         <Container style={{ marginTop: '3em'}}>
           <Card.Group className='centered'>
@@ -27,7 +27,7 @@ class Landing extends Component {
                 <Card fluid>
                   <Card.Content style={{ padding: '3em' }}>
                     <Card.Header textAlign='left'>
-                      Find a Mentor
+                      Find a Startup Mentor
                     </Card.Header>
                     <Card.Description>
                       <List bulleted style={{textAlign: 'left'}}>
@@ -47,7 +47,7 @@ class Landing extends Component {
                 <Card fluid>
                   <Card.Content style={{ padding: '3em' }}>
                     <Card.Header textAlign='left'>
-                      Become a Mentor
+                      Become a Startup Mentor
                     </Card.Header>
                     <Card.Description>
                       <List bulleted style={{textAlign: 'left'}}>
